@@ -5,32 +5,32 @@ services:
       context: ./books
       dockerfile: Dockerfile
     ports:
-      - '3001:3000'
+      - '3001:3000'  # Expose port 3000 of books service to host port 3001
     depends_on:
-      - mongo
+      - mongo  # Ensure mongo service starts before books service
 
   members:
     build:
       context: ./members
       dockerfile: Dockerfile
     ports:
-      - '3002:3000'
+      - '3002:3000'  # Expose port 3000 of members service to host port 3002
     depends_on:
-      - mongo
+      - mongo  # Ensure mongo service starts before members service
 
   loans:
     build:
       context: ./loans
       dockerfile: Dockerfile
     ports:
-      - '3003:3000'
+      - '3003:3000'  # Expose port 3000 of loans service to host port 3003
     depends_on:
-      - mongo
+      - mongo  # Ensure mongo service starts before loans service
 
   mongo:
     image: mongo
     ports:
-      - '27017:27017'
+      - '27017:27017'  # Expose MongoDB default port
 
 networks:
   default:
