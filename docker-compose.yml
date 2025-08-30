@@ -33,6 +33,7 @@ services:
       - '27017:27017'  # Expose MongoDB default port
     # MongoDB service to manage data for the application
 
+# Docker Compose configuration for a library management system
 networks:
   default:
     driver: bridge
